@@ -1,12 +1,24 @@
-import { browser } from 'protractor';
+import { browser, protractor } from 'protractor';
+import { LogInPage } from '../pages/logInPage';
 
-describe("Plan exams test suite for login screen", function () {
+describe("Gmail log in and send email test", function () {
 
+    let logInPage = new LogInPage();
 
-    it("PE login/logout- check displayed elements", () => {
+    beforeEach(() => {
         browser.get("https://accounts.google.com/");
         browser.manage().window().maximize();
-        browser.sleep(5000);
+    });
+
+    it("Gmail log in and send email test", () => {
+        expect(logInPage.elements.logo.isDisplayed()).toBeTruthy();
+        logInPage.elements.email.click();
+        logInPage.elements.email.sendKeys('chcepotestowac@gmail.com');
+        protractor.Key.ENTER;
+        browser.sleep(4000);
+
+
+        
     });
 
 });
