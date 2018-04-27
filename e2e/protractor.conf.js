@@ -1,7 +1,9 @@
+
 'use strict';
 
 const argv = require('yargs').argv;
 const distTest = './.dist';
+
 
 const config = {
     chromeOnly: true,
@@ -9,9 +11,10 @@ const config = {
     capabilities: {
         'browserName': 'chrome'
     },
-    
+
     chromeDriver: './selenium/chromedriver_2.35.exe',
-    baseUrl: 'http://g1gsn0bms057:18210/',
+ //  seleniumAddress: 'http://localhost:4444/wd/hub',
+    //baseUrl: 'http://g1gsn0bms057:18210/',
     allScriptsTimeout: 300000,
     framework: 'jasmine',
     jasmineNodeOpts: {
@@ -21,6 +24,7 @@ const config = {
     },
 
 };
+
 
 if (argv.singleTest) {
     config.specs = [`${distTest}/**/${argv.singleTest}.js`];

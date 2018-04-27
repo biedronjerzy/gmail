@@ -4,9 +4,11 @@ import { IButton, IElement, ITextBox, IDropDown } from '../utilities/interfaces'
 export class LogInPage {
 
   elements = {
-    logo: <IElement> $(`#logo`),
-    email: <ITextBox> $('#identifireId'),
-
+    logo:  $(`.gmail-logo`),
+    signIn: element(by.cssContainingText('.gmail-nav__nav-links-wrap','Sign In')),
+    email: $('#identifireId'),
+    // logo:  browser.driver.findElement(by.css(`#logo`)),
+    // email: browser.driver.findElement(by.css('#identifireId')),
 
 
     switchApp: <IDropDown>$(`.app-name-panel`),
